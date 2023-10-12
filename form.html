@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Include fișierele CSS Bootstrap -->
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <title>Vite App</title>
+</head>
+
+<body>
+
+    <nav
+    class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3" style="background-color: var(--prussian-blue);">
+    <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+      <img src="/assets/img/ddroidd_logo.svg" width="30%">
+    </a>
+    <div class="d-flex justify-content-center">
+      <h1><span style="color:white">Autumn - Winter Bootcamp</span></h1>
+    </div>
+    
+  </nav>
+    <div class="container" style="background-color: var(--athens-grey);">
+        <h3>Application Form</h3>
+        <form id="myForm">
+            <h3>Contact information</h3>
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="first_name" class="form-label">First Name <span style="color:red">*</span></label>
+                    <input type="text" class="form-control" id="first_name" required>
+                    <div class="invalid-feedback">
+                        First name is required
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="last_name" class="form-label">Last Name <span style="color:red">*</span></label>
+                    <input type="text" class="form-control" id="last_name" required>
+                    <div class="invalid-feedback">
+                        Last name is required </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="phone" class="form-label">Phone number <span style="color:red">*</span></label>
+                    <input type="text" class="form-control" id="phone" required>
+                    <div class="invalid-feedback">
+                        Wrong phone number format </div> 
+                </div>
+                <div class="col">
+                    <label for="email" class="form-label">Email address <span style="color:red">*</span></label>
+                    <input type="text" class="form-control" id="email" required>
+                    <div class="invalid-feedback">
+                        Email is required
+                    </div>
+                </div>
+            </div>
+            <h3>Address</h3>
+            <div class="mb-3">
+                <label for="address1" class="form-label">Address Line 1 <span style="color:red">*</span></label>
+                <input type="text" class="form-control" id="address1" required>
+                <div class="invalid-feedback">
+                    Address is required
+            </div>
+            <div class="mb-3">
+                <label for="address2" class="form-label">Address Line 2</label>
+                <input type="text" class="form-control" id="address2">
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="country" class="form-label">Country <span style="color:red">*</span></label>
+                    <select class="form-select country" required aria-label="Default select example" onchange="loadStates()">
+                        <option value=""> Select country </option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="state" class="form-label">State</label>
+                    <select class="form-select state" aria-label="Default select example" onchange="loadCities()">
+                        <option value=""> Select state </option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="city" class="form-label">City <span style="color:red">*</span></label>
+                    <select class="form-select city" required aria-label="Default select example">
+                        <option value=""> Select city </option>
+                    </select>
+                    <div class="invalid-feedback">City is required</div>
+                </div>
+            </div>
+            <div class="text-end">
+
+                <a class="button" href="final_page.html" type="submit">Join Us</a>
+            </div>
+        </form>
+    </div>
+    
+    <script>
+        const form = document.getElementById("myForm");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            if (form.first_name.value === "" || form.last_name.value === "" || form.phone.value === "" || form.email.value === "" || form.country.value === "" || form.city.value === "") {
+                alert("Toate câmpurile obligatorii trebuie completate.");
+            } else {
+                // Redirecționează utilizatorul către "final_page.html" după validare
+                window.location.href = "final_page.html";
+            }
+        });
+    </script>
+
+
+
+    <script type="module" src="/main.js"></script>
+    <script src="api.js"></script>
+    
+</body>
+
+</html>
